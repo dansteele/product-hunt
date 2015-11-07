@@ -1,4 +1,4 @@
-<div class="jumbotron wrapper">
+<div class="jumbotron wrapper" data-id="1">
 	<div class="row">
 		<h1 data-intro="This is your chance to directly influence the decisions made for your local community.  This is the first motion for you to vote on, check out the description below for more info" data-step="1" class="motion-title">motion.title</h1>
 	</div>
@@ -32,5 +32,32 @@
 
 </div>
 <script>
+	$(document).ready(function(){
+		var points;
+		var motionId;
+
+		motionId = $(".jumbotron.wrapper").attr("data-id");
+
+		$( "a.ui-slider-handle" ).on( "mouseleave", function() {
+		  console.log("Fire event");
+		  points = $(this).attr("aria-valuenow");
+		  console.log("Points", points);
+		  $.ajax({
+			  type: "POST",
+			  url: "/votes/create",
+			  data: {"motion_id": motionId, "points": points},
+			  success: function(data, textStatus, jqXHR)
+			    {	
+			       console.log("Data", data);
+			       console.log("Success");
+			    },
+			  error: function (jqXHR, textStatus, errorThrown)
+			    {
+			 		console.log("Error", errorThrown);
+			    },
+			  dataType: "json"
+			});
+		});
+	})
 	introJs().start();
 </script>
