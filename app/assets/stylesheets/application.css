@@ -12,4 +12,62 @@
  *
  *= require_tree .
  *= require_self
+ *= require introjs
  */
+
+ .wrapper{
+ 	padding: 25px;
+ }
+
+ .voting-points{
+ 	margin-top: 25px;
+    margin-bottom: 25px;
+ }
+
+ .motion-title{
+ 	text-align: center;
+ }
+
+ .motion-description{
+ 	text-align: center;
+ }
+
+ .pager-button {
+ 	margin: 50px;
+ }
+
+ .pager-link{
+ 	width: 100px;
+ }
+
+div.ui-slider {
+	width: 500px;
+	float: none;
+    margin: 0 auto;
+}
+
+ .user-points-remaining{
+ 	margin-top: 50px;
+ 	text-align: center;
+ }
+
+ span.introjs-helperNumberLayer{
+ 	padding: 0px;
+ 	font-size: 10px;
+ 	left: -5px;
+ 	line-height: inherit;
+ }
+
+ @media (max-width: 550px){
+ 	.pager-button {
+	 	margin: 5px;
+	 }
+	 div.ui-slider {
+		width: 250px;
+		float: none;
+	    margin: 0 auto;
+	}
+}
+
+
+

@@ -1,2 +1,63 @@
-<h1>My awesome motion</h1>
-With the ID <%= @motion.id %>
+<div class="jumbotron wrapper" data-id="1">
+	<div class="row">
+		<h1 data-intro="This is your chance to directly influence the decisions made for your local community.  This is the first motion for you to vote on, check out the description below for more info" data-step="1" class="motion-title">motion.title</h1>
+	</div>
+
+	<div class="row">
+		<p class="motion-description">motion.description</p>
+	</div>
+
+	<div class="row">
+		<div class="voting-points" data-intro="You have 50 points to allocate across the motions. To vote, select a number on the slider. " data-step="2">
+			<div data-role="main" class="ui-content">
+			    <form method="post" action="demoform.asp">
+			      <input type="range" name="points" id="points" value="5" min="0" max="10" data-show-value="true">
+			    </form>
+  			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="motion-navigation" data-intro="Once you have voted on this motion, select the next motion to vote on" data-step="3">
+			<ul class="pager">
+			  <li class="pager-button"><a class="pager-link" href="#">Previous</a></li>
+			  <li class="pager-button"><a class="pager-link" href="#">Next</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<p class="user-points-remaining">user.points_remaining</p>
+	</div>
+
+</div>
+<script>
+	$(document).ready(function(){
+		var points;
+		var motionId;
+
+		motionId = $(".jumbotron.wrapper").attr("data-id");
+
+		$( "a.ui-slider-handle" ).on( "mouseleave", function() {
+		  console.log("Fire event");
+		  points = $(this).attr("aria-valuenow");
+		  console.log("Points", points);
+		  $.ajax({
+			  type: "POST",
+			  url: "/votes/create",
+			  data: {"motion_id": motionId, "points": points},
+			  success: function(data, textStatus, jqXHR)
+			    {	
+			       console.log("Data", data);
+			       console.log("Success");
+			    },
+			  error: function (jqXHR, textStatus, errorThrown)
+			    {
+			 		console.log("Error", errorThrown);
+			    },
+			  dataType: "json"
+			});
+		});
+	})
+	introJs().start();
+</script>

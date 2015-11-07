@@ -27,6 +27,7 @@ gem 'devise'
 gem 'factory_girl'
 gem 'faker'
 gem 'pry'
+gem "introjs-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
