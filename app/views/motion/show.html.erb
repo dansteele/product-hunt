@@ -1,6 +1,6 @@
 <div class="jumbotron wrapper">
 	<div class="row">
-		<h1 class="motion-title">motion.title</h1>
+		<h1 data-intro="This is your chance to directly influence the decisions made for your local community.  This is the first motion for you to vote on, check out the description below for more info" data-step="1" class="motion-title">motion.title</h1>
 	</div>
 
 	<div class="row">
@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="row">
-		<div class="voting-points">
+		<div class="voting-points" data-intro="You have 50 points to allocate across the motions. To vote, select a number on the slider. " data-step="2">
 			<div data-role="main" class="ui-content">
 			    <form method="post" action="demoform.asp">
 			      <input type="range" name="points" id="points" value="5" min="0" max="10" data-show-value="true">
@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="row">
-		<div class="motion-navigation">
+		<div class="motion-navigation" data-intro="Once you have voted on this motion, select the next motion to vote on" data-step="3">
 			<ul class="pager">
 			  <li class="pager-button"><a class="pager-link" href="#">Previous</a></li>
 			  <li class="pager-button"><a class="pager-link" href="#">Next</a></li>
@@ -31,3 +31,6 @@
 	</div>
 
 </div>
+<script>
+	introJs().start();
+</script>

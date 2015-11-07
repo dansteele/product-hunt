@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require introjs
  */
 
  .wrapper{
@@ -39,11 +40,6 @@
  	width: 100px;
  }
 
- /*.voting-points{
- 	float: none;
-    margin: 0 auto;
- }*/
-
 div.ui-slider {
 	width: 500px;
 	float: none;
@@ -54,4 +50,24 @@ div.ui-slider {
  	margin-top: 50px;
  	text-align: center;
  }
+
+ span.introjs-helperNumberLayer{
+ 	padding: 0px;
+ 	font-size: 10px;
+ 	left: -5px;
+ 	line-height: inherit;
+ }
+
+ @media (max-width: 550px){
+ 	.pager-button {
+	 	margin: 5px;
+	 }
+	 div.ui-slider {
+		width: 250px;
+		float: none;
+	    margin: 0 auto;
+	}
+}
+
+
 
