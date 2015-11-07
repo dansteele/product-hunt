@@ -5,6 +5,11 @@ class Constituent < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+  after_create do |con|
+    con.constituency = Constituency.first
+    con.save
+  end
+
   has_many :votes
   has_many :motions, through: :votes
   belongs_to :constituency
