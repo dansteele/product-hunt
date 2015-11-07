@@ -1,6 +1,6 @@
 class Constituency < ActiveRecord::Base
 
-  has_many :governments
+  has_one :government
   has_many :constituents
 
 end
