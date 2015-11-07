@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+ .wrapper{
+ 	padding: 25px;
+ }
+
+ .voting-points{
+ 	margin-top: 25px;
+    margin-bottom: 25px;
+ }
+
+ .motion-title{
+ 	text-align: center;
+ }
+
+ .motion-description{
+ 	text-align: center;
+ }
+
+ .pager-button {
+ 	margin: 50px;
+ }
+
+ .pager-link{
+ 	width: 100px;
+ }
+
+ /*.voting-points{
+ 	float: none;
+    margin: 0 auto;
+ }*/
+
+div.ui-slider {
+	width: 500px;
+	float: none;
+    margin: 0 auto;
+}
+
+ .user-points-remaining{
+ 	margin-top: 50px;
+ 	text-align: center;
+ }
+
