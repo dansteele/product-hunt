@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :governments
   devise_for :constituents
-  root to: "welcome#index"
+  root to: "motion#index"
 
-  resources :motion, only: [:show]
+  resources :motion, only: [:show, :index]
 
 end
+
