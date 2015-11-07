@@ -3,4 +3,8 @@ class Constituent < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  has_many :votes
+  has_many :motions, through: :votes
 end
