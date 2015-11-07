@@ -4,7 +4,7 @@ class MotionController < ApplicationController
 
   def index
     # Finds out which motion it should redirect the user to
-    redirect_to motion_path(Motion.first) # Temporary
+    redirect_to motion_path(current_constituent.constituency.government.motion_lists.last.motions.first) # Temporary
   end
 
   def show
