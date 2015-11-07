@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root to: "motion#index"
 
   resources :motion, only: [:show, :index]
+  resources :vote, only: [:create]
 
 end
-

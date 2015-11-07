@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20151107154028) do
   create_table "votes", force: :cascade do |t|
     t.integer "constituent_id"
     t.integer "motion_id"
+    t.integer "points"
   end
 
 end
