@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107123810) do
+ActiveRecord::Schema.define(version: 20151107124951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "constituencies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "constituents", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,10 +34,17 @@ ActiveRecord::Schema.define(version: 20151107123810) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "constituency_id"
   end
 
   add_index "constituents", ["email"], name: "index_constituents_on_email", unique: true, using: :btree
   add_index "constituents", ["reset_password_token"], name: "index_constituents_on_reset_password_token", unique: true, using: :btree
+
+  create_table "governments", force: :cascade do |t|
+    t.integer  "constituency_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "motions", force: :cascade do |t|
     t.string   "title"
