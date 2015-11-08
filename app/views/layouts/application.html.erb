@@ -11,23 +11,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="jumbotron wrapper">
+  <div class="jumbotron wrapper full-height">
 
     <center>
       <%= image_tag "logo.png", class: "logo" %>
     </center>
 
     <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-        <script>
-          introJs().start();
-        </script>
+      <p class="alert alert-success"><small><%= notice %></small></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
+      <p class="alert alert-danger"><small><%= alert %></small></p>
     <% end %>
 
     <%= yield %>
+
+    <% if notice %>
+      <script>
+        $(document).ready(function() {introJs("#introThing").start()});
+      </script>
+    <% end %>
   </div>
 </body>
 </html>

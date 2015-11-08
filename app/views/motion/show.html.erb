@@ -1,10 +1,10 @@
-<div data-id="1" id="container">
+<div id="body" data-id="1" id="container">
 	<div class="row">
-		<h1 data-intro="This is your chance to directly influence the decisions made for your local community.  This is the first motion for you to vote on, check out the description below for more info" data-step="1" class="motion-title"><%=@motion.title%></h1>
+		<h2 class="motion-title"><%=@motion.title%></h2>
 	</div>
 
 	<div class="row">
-		<p class="motion-description"><%= @motion.description %></p>
+		<p id="introThing" data-intro="This is your chance to directly influence the decisions made for your local community.  This is the first motion for you to vote on, check out the description below for more info" data-step="0" class="motion-description"><small><%= @motion.description %></small></p>
 	</div>
 
 	<div class="row">
@@ -34,7 +34,7 @@
 <script type="text/javascript">
 	$(".pager-button").click(function() {
     var points = $('#points').val();
-    var motionId = $(".jumbotron.wrapper").attr("data-id");
+    var motionId = $("#body").attr("data-id");
     $.post("http://localhost:3000/vote", {
       data: {
         "motion_id": motionId, 
