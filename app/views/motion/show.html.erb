@@ -4,7 +4,7 @@
 	</div>
 
 	<div class="row">
-		<p class="motion-description">motion.description</p>
+		<p class="motion-description"><%= @motion.description %></p>
 	</div>
 
 	<div class="row">
@@ -27,11 +27,24 @@
 	</div>
 
 	<div class="row">
-		<p class="user-points-remaining">user.points_remaining</p>
+		<p class="user-points-remaining"><%= current_constituent.points %> points remaining.</p>
 	</div>
 
 </div>
-<script>
-	//TO-DO: ensure only shows the first time it is loaded on the first motion
-	introJs().start();
+<script type="text/javascript">
+	$(".pager-button").click(function() {
+    var points = $('#points').val();
+    var motionId = $(".jumbotron.wrapper").attr("data-id");
+    $.post("http://localhost:3000/vote", {
+      data: {
+        "motion_id": motionId, 
+        "points": points
+      },
+      success: function(res) {  
+        console.log("Data", res);
+        console.log("Success");
+      },
+      dataType: "json"
+    });
+  });
 </script>

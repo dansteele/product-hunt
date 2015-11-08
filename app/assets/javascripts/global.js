@@ -1,4 +1,4 @@
-$(document).on('page:change', function(){
+$(document).ready(function(){
   setup();
 });
 
@@ -19,7 +19,6 @@ function addEventListeners() {
 
 function animateThings() {
   utility.animations.enterPage();
-  // setupTextillate();
 };
 
 

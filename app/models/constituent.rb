@@ -19,16 +19,18 @@ class Constituent < ActiveRecord::Base
     constituency.government.motion_list.last
   end
 
-  def vote_on (motion_id, points)
+  def vote_on (motion_id, vote_points)
     # check if the constituent has voted for the same motion already
     # if so, update that vote
     vote = votes.find_by(motion_id: motion_id)
     if vote.nil?
-      votes << Vote.create(motion_id: motion_id, points: points)
+      votes << Vote.create(motion_id: motion_id, points: vote_points)
     else
-      vote.points = points
+      vote.points = vote_points
       vote.save()
     end
+    self.points -= vote_points
+    save
   end
 
 end
